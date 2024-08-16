@@ -1,0 +1,8 @@
+services:
+    app:
+        build: .
+        ports:
+            - 8080:80
+        volumes:
+            - ./:/var/www/html/wp-content/plugins/vo-html-sitemap
+            - ./docker/config/wp-config.php:/var/www/html/wp-config.php
