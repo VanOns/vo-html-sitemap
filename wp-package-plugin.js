@@ -32,7 +32,25 @@ archive.pipe(output)
 archive.glob('**',
     {
         ignore: [
-            // TODO: Add files to ignore
+            '.idea',
+            '.babelrc',
+            '.git',
+            '.gitignore',
+            '.github',
+            '.editorconfig',
+            '.npmrc',
+            '.nvmrc',
+            '.prettierrc',
+            'webpack.config.js',
+            'wp-package-plugin.js',
+            'node_modules/**',
+            'assets/**',
+            'docker/**',
+            'package.json',
+            'package-lock.json',
+            'docker-compose.yml',
+            'Dockerfile',
+            'docker-compose-override.yml',
             filename + '.zip'
         ]
     },
