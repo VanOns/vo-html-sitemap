@@ -10,7 +10,8 @@
   "license": "MIT",
   "scripts": {
     "build": "webpack --mode production",
-    "dev": "webpack --mode development --watch"
+    "dev": "webpack --mode development --watch",
+    "package": "npm run build && node ./wp-package-plugin.js"
   },
   "devDependencies": {
     "babel-loader": "^9.1.3",
