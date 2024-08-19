@@ -1,0 +1,38 @@
+name: Create production release
+on:
+  push:
+    tags:
+      - v*
+
+env:
+  PHP_VERSION: 8.0
+  ZIP_NAME: vo-html-sitemap.zip
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📄 Clone Repository
+        uses: actions/checkout@v3
+
+      - name : ⚙️ Set up Node.js
+        uses : actions/setup-node@v3
+        with :
+          node-version-file : '.nvmrc'
+          cache : 'npm'
+          cache-dependency-path : package-lock.json
+
+      - name : ⬇ Install npm dependencies
+        run : |
+          npm ci
+
+      - name : 📦 Build and zip the plugin
+        run : |
+          npm run package
+
+      - name: 🚀 Create a new release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: ${{ env.ZIP_NAME }}
+          generateReleaseNotes: true

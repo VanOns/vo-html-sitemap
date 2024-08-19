@@ -15,6 +15,7 @@ class Plugin
 
         add_action('pre_get_posts', [self::class, 'valiDateQuery']);
         add_action('the_content', [self::class, 'sitemapContent']);
+        add_action('wp_enqueue_scripts', [self::class, 'enqueueAssets']);
     }
 
     /**
@@ -70,7 +71,10 @@ class Plugin
 
         if ($year === false && $month === false && $day === false && empty( PostDateRepository::getYears() )) {
             $query->set_404();
+            return;
         }
+
+        wp_enqueue_style('vo-html-sitemap');
     }
 
     public static function sitemapContent(string $content): string
@@ -96,5 +100,11 @@ class Plugin
         }
 
         return Template::get('sitemap', Sitemap::getSitemapOverviewData());
+    }
+
+    public static function enqueueAssets() {
+        $rootUrl = plugin_dir_url(VOHTMLSITEMAP_FILE);
+
+        wp_register_style('vo-html-sitemap', $rootUrl . 'dist/main.css', [], VOHTMLSITEMAP_VERSION);
     }
 }

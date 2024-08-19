@@ -8,17 +8,21 @@ A wordpress plugin to add a html sitemap to your site
 
 ## Quick start
 
+Download the latest release from the [releases page](https://github.com/VanOns/vo-html-sitemap/releases) and install it in your WordPress admin panel.
+Select the page you want to display the sitemap on in the settings page and visit that page to view your sitemap!
+
 ### Installation
 
-TODO: Add installation
+1. Download the latest version release from the [releases page](https://github.com/VanOns/vo-html-sitemap/releases)
+2. Go to your WordPress admin panel and navigate to `Plugins` -> `Add New`
+3. Click `Upload Plugin` and select the downloaded zip file
+4. Click `Install Now` and then `Activate Plugin`
 
 ### Usage
 
-TODO: Add usage, show settings page.
-
-## Documentation
-
-Please see the [documentation] for detailed information about installation and usage.
+1. Go to `Settings` -> `VO HTML Sitemap` to configure on which page the sitemap should be displayed, we recommend using a page dedicated to displaying the sitemap.
+2. Flush your permalinks by going to `Settings` -> `Permalinks` and clicking `Save Changes`
+3. Visit the page you selected in step 1 to view your sitemap!
 
 ## Contributing
 

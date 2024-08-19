@@ -12,22 +12,23 @@ use VOHTMLSitemap\Includes\Items\Year;
  */
 
 ?>
+<div class="vo-html-sitemap">
+    <h2>
+        <a href="<?php the_permalink() ?>"><?php the_title() ?></a> -
+        <a href="<?php echo esc_attr($year->getUrl()) ?>"><?php echo esc_html($year->getLabel()) ?></a> -
+        <a href="<?php echo esc_attr($month->getUrl()) ?>"><?php echo esc_html($month->getLabel()) ?></a> -
+        <?php echo esc_html($day->getLabel()) ?>
+    </h2>
 
-<h2>
-    <a href="<?php the_permalink()?>"><?php the_title() ?></a> -
-    <a href="<?php echo esc_attr($year->getUrl()) ?>"><?php echo esc_html( $year->getLabel() ) ?></a> -
-    <a href="<?php echo esc_attr($month->getUrl()) ?>"><?php echo esc_html( $month->getLabel() ) ?></a> -
-    <?php echo esc_html( $day->getLabel() ) ?>
-</h2>
+    <h3>
+        <?php esc_html_e(__('Posts')) ?>
+    </h3>
 
-<h3>
-    <?php esc_html_e( __('Posts') ) ?>
-</h3>
-
-<ul>
-    <?php foreach ($posts as $post): ?>
-        <li>
-            <a href="<?php echo esc_attr( get_permalink($post) ) ?>"><?php echo esc_html( $post->post_title ) ?></a>
-        </li>
-    <?php endforeach; ?>
-</ul>
+    <ul class="vo-html-sitemap__list">
+        <?php foreach ($posts as $post): ?>
+            <li class="vo-html-sitemap__list-item">
+                <a href="<?php echo esc_attr(get_permalink($post)) ?>"><?php echo esc_html($post->post_title) ?></a>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+</div>

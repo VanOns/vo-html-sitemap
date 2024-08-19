@@ -7,14 +7,16 @@ use VOHTMLSitemap\Includes\Items\Year;
  */
 ?>
 
-<h2>
-    <?php the_title() ?>
-</h2>
+<div class="vo-html-sitemap">
+    <h2>
+        <?php the_title() ?>
+    </h2>
 
-<ul>
-    <?php foreach ($years as $year): ?>
-        <li>
-            <a href="<?php echo esc_attr( $year->getUrl() ) ?>"><?php echo esc_html( $year->getLabel() ) ?></a>
-        </li>
-    <?php endforeach; ?>
-</ul>
+    <ul class="vo-html-sitemap__grid">
+        <?php foreach ($years as $year): ?>
+            <li class="vo-html-sitemap__grid-item">
+                <a href="<?php echo esc_attr($year->getUrl()) ?>"><?php echo esc_html($year->getLabel()) ?></a>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+</div>
