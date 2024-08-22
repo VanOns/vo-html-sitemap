@@ -1,6 +1,7 @@
 <?php
 
 use VOHTMLSitemap\Includes\Items\Year;
+use VOHTMLSitemap\Includes\PagesRepository;
 
 /**
  * @var $years Year[]
@@ -11,6 +12,16 @@ use VOHTMLSitemap\Includes\Items\Year;
     <h2>
         <?php the_title() ?>
     </h2>
+
+    <ul class="vo-html-sitemap__grid">
+        <?php foreach (PagesRepository::getRanges() as $range): ?>
+            <li class="vo-html-sitemap__grid-item">
+                <a href="<?php echo esc_attr($range->getUrl()) ?>"><?php echo esc_html($range->getLabel()) ?></a>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+
+    <hr>
 
     <ul class="vo-html-sitemap__grid">
         <?php foreach ($years as $year): ?>
