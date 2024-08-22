@@ -15,9 +15,26 @@ class PostDateRepository
         $this->wpdb = $wpdb;
     }
 
-    protected function query($sql, array $args = []): array
+    /**
+     * @return Year[]
+     */
+    public static function getYears(): array
     {
-        return $this->wpdb->get_results($this->wpdb->prepare($sql, $args));
+        $self = static::getInstance();
+
+        $sql = "SELECT YEAR(post_date) AS year FROM {$self->wpdb->posts} WHERE post_type IN ({$self->getPostTypesPreparedCount()}) AND post_status = 'publish' GROUP BY year ORDER BY year ASC";
+        $years = $self->query($sql, $self->getPostTypesPreparedValues());
+
+        return array_map(fn($year) => new Year($year->year), $years);
+    }
+
+    protected static function getInstance(): PostDateRepository
+    {
+        static $instance = null;
+        if ($instance === null) {
+            $instance = new static();
+        }
+        return $instance;
     }
 
     protected function getPostTypesPreparedCount(): string
@@ -30,26 +47,9 @@ class PostDateRepository
         return array_keys(Settings::getPostTypes());
     }
 
-    protected static function getInstance(): PostDateRepository
+    protected function query($sql, array $args = []): array
     {
-        static $instance = null;
-        if ($instance === null) {
-            $instance = new static();
-        }
-        return $instance;
-    }
-
-    /**
-     * @return Year[]
-     */
-    public static function getYears(): array
-    {
-        $self = static::getInstance();
-
-        $sql = "SELECT YEAR(post_date) AS year FROM {$self->wpdb->posts} WHERE post_type IN ({$self->getPostTypesPreparedCount()}) AND post_status = 'publish' GROUP BY year ORDER BY year ASC";
-        $years = $self->query($sql, $self->getPostTypesPreparedValues());
-
-        return array_map(fn($year) => new Year($year->year), $years);
+        return $this->wpdb->get_results($this->wpdb->prepare($sql, $args));
     }
 
     /**

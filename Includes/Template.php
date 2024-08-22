@@ -14,6 +14,11 @@ class Template
         }
     }
 
+    private static function getTemplatePath(string $templateName): string
+    {
+        return realpath(VOHTMLSITEMAP_ROOT . 'templates/' . $templateName . '.php');
+    }
+
     public static function get(string $templateName, array $data = []): string
     {
         $templatePath = self::getTemplatePath($templateName);
@@ -26,10 +31,5 @@ class Template
         }
 
         return '';
-    }
-
-    private static function getTemplatePath(string $templateName): string
-    {
-        return realpath( VOHTMLSITEMAP_ROOT . 'templates/' . $templateName . '.php' );
     }
 }

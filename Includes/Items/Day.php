@@ -2,25 +2,23 @@
 
 namespace VOHTMLSitemap\Includes\Items;
 
-use VOHTMLSitemap\Includes\Settings;
-
 class Day extends Item
 {
     public function __construct(
-        public Year $year,
+        public Year  $year,
         public Month $month,
-        public int $day
+        public int   $number
     )
     {
     }
 
     public function getLabel(): string
     {
-        return $this->day;
+        return $this->number;
     }
 
     public function getUrl(): string
     {
-        return get_permalink(Settings::getPageId()) . $this->year->number . '/' . $this->month->number . '/' . $this->day;
+        return $this->buildUrlPath([$this->year->number, $this->month->number, $this->number]);
     }
 }

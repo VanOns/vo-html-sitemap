@@ -2,8 +2,6 @@
 
 namespace VOHTMLSitemap\Includes\Items;
 
-use VOHTMLSitemap\Includes\Settings;
-
 class Year extends Item
 {
     public function __construct(
@@ -19,6 +17,6 @@ class Year extends Item
 
     public function getUrl(): string
     {
-        return get_permalink(Settings::getPageId()) . $this->number;
+        return $this->buildUrlPath([$this->number]);
     }
 }

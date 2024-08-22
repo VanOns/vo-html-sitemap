@@ -2,9 +2,11 @@
 
 namespace VOHTMLSitemap\Includes;
 
+use DateTime;
 use VOHTMLSitemap\Includes\Items\Day;
 use VOHTMLSitemap\Includes\Items\Month;
 use VOHTMLSitemap\Includes\Items\Year;
+use WP_Query;
 
 class Plugin
 {
@@ -21,14 +23,14 @@ class Plugin
     /**
      * Check if the given date is a valid date and there are items for that date, otherwise set the query to a 404.
      *
-     * @param \WP_Query $query
+     * @param WP_Query $query
      * @return void
      *
      * In Dutch we call this a woordgrapje, a word joke. The function name is a combination of validate and date.
      */
-    public static function valiDateQuery(\WP_Query $query): void
+    public static function valiDateQuery(WP_Query $query): void
     {
-        if (!($query->is_main_query() && get_query_var('vo-html-sitemap', false))) {
+        if (!$query->is_main_query() || !get_query_var('vo-html-sitemap', false)) {
             return;
         }
 
@@ -54,27 +56,39 @@ class Plugin
             $day = new Day($year, $month, $day);
         }
 
-        if ($day !== false && empty( PostRepository::getPostIdsForDate($day) )) {
+        if ($day !== false && empty(PostRepository::getPostIdsForDate($day))) {
             $query->set_404();
             return;
         }
 
-        if ($month !== false && $day === false && empty( PostDateRepository::getDays($month) )) {
+        if ($month !== false && $day === false && empty(PostDateRepository::getDays($month))) {
             $query->set_404();
             return;
         }
 
-        if ($year !== false && $month === false && $day === false && empty( PostDateRepository::getMonths($year) )) {
+        if ($year !== false && $month === false && $day === false && empty(PostDateRepository::getMonths($year))) {
             $query->set_404();
             return;
         }
 
-        if ($year === false && $month === false && $day === false && empty( PostDateRepository::getYears() )) {
+        if ($year === false && $month === false && $day === false && empty(PostDateRepository::getYears())) {
             $query->set_404();
             return;
         }
 
         wp_enqueue_style('vo-html-sitemap');
+
+        // if the last date of the given object is older than a year, set the noindex header
+        // so the last month of the year, last day of the month will not be indexed.
+        $year = $year ?: new Year(date("Y"));
+        $month = $month ?: new Month($year, 12);
+        $day = $day ?: new Day($year, $month, date('t', mktime(0, 0, 0, $month->number, 1, $year->number)));
+
+        $datetime = DateTime::createFromFormat('Y-m-d', "{$year->number}-{$month->number}-{$day->number}");
+
+        if ($datetime->getTimestamp() < strtotime('-1 year')) {
+            header('X-Robots-Tag: noindex');
+        }
     }
 
     public static function sitemapContent(string $content): string
@@ -102,7 +116,8 @@ class Plugin
         return Template::get('sitemap', Sitemap::getSitemapOverviewData());
     }
 
-    public static function enqueueAssets() {
+    public static function enqueueAssets(): void
+    {
         $rootUrl = plugin_dir_url(VOHTMLSITEMAP_FILE);
 
         wp_register_style('vo-html-sitemap', $rootUrl . 'dist/main.css', [], VOHTMLSITEMAP_VERSION);
