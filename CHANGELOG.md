@@ -2,6 +2,10 @@
 
 All changes to this project will be documented in this file.
 
+## 1.0.3 - 2024-08-23
+
+- Compatibility with child pages. 
+
 ## 1.0.2 - 2024-08-19
 
 - Refactor sitemap items to pages
