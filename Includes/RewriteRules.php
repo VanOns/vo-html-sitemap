@@ -2,11 +2,6 @@
 
 namespace VOHTMLSitemap\Includes;
 
-use VOHTMLSitemap\Includes\Pages\LastWeek;
-use VOHTMLSitemap\Includes\Pages\ThisWeek;
-use VOHTMLSitemap\Includes\Pages\Today;
-use VOHTMLSitemap\Includes\Pages\Yesterday;
-
 class RewriteRules
 {
     public static function init(): void
@@ -29,35 +24,40 @@ class RewriteRules
             return;
         }
 
+        $permalink = get_permalink($page->ID);
+        $base = str_replace('/', '\/', trim(str_replace(home_url(), '', $permalink), '/'));
+
         add_rewrite_rule(
-            "^{$page->post_name}\/([0-9]{4})\/?([0-9]{1,2})\/([0-9]{1,2})$",
+            "^{$base}\/([0-9]{4})\/?([0-9]{1,2})\/([0-9]{1,2})$",
             'index.php?page_id=' . $page->ID . '&vo-html-sitemap=true&vo-html-sitemap-year=$matches[1]&vo-html-sitemap-month=$matches[2]&vo-html-sitemap-day=$matches[3]',
             'top'
         );
         add_rewrite_rule(
-            "{$page->post_name}\/([0-9]{4})\/([0-9]{1,2})$",
+            "^{$base}\/([0-9]{4})\/([0-9]{1,2})$",
             'index.php?page_id=' . $page->ID . '&vo-html-sitemap=true&vo-html-sitemap-year=$matches[1]&vo-html-sitemap-month=$matches[2]',
             'top'
         );
 
         add_rewrite_rule(
-            "{$page->post_name}\/([0-9]{4})$",
+            "^{$base}\/([0-9]{4})$",
             'index.php?page_id=' . $page->ID . '&vo-html-sitemap=true&vo-html-sitemap-year=$matches[1]',
             'top'
         );
 
-        $sitemapDates = [new Today(), new Yesterday(), new ThisWeek(), new LastWeek()];
-
-        foreach ($sitemapDates as $date) {
-            add_rewrite_rule(
-                "{$page->post_name}/{$date->getSlug()}$",
-                'index.php?page_id=' . $page->ID . '&vo-html-sitemap=true&vo-html-sitemap-range=' . $date->getSlug(),
-                'top'
-            );
-        }
+        $sitemapDates = PagesRepository::getRanges();
+        $slugs = array_map(function ($date) {
+            return $date->getSlug();
+        }, $sitemapDates);
+        $expression = implode('|', $slugs);
 
         add_rewrite_rule(
-            "{$page->post_name}$",
+            "^{$base}\/({$expression})$",
+            'index.php?page_id=' . $page->ID . '&vo-html-sitemap=true&vo-html-sitemap-range=$matches[1]',
+            'top'
+        );
+
+        add_rewrite_rule(
+            "^{$base}$",
             'index.php?page_id=' . $page->ID . '&vo-html-sitemap=true',
             'top'
         );
