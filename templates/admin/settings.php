@@ -3,7 +3,6 @@
         <?php settings_fields('vo-html-sitemap-settings') ?>
         <?php do_settings_sections('vo-html-sitemap') ?>
 
-
         <table class="form-table">
             <tr>
                 <th scope="row">
@@ -16,8 +15,7 @@
                         </legend>
                         <?php foreach (get_post_types(['public' => true]) as $type): ?>
                             <label>
-                                <input type="checkbox" name="vo-html-sitemap-post-types[<?php echo esc_attr( $type ) ?>]"
-                                       value="1" <?php echo checked(get_option('vo-html-sitemap-post-types')[$type] ?? false) ?>>
+                                <input type="checkbox" name="vo-html-sitemap-post-types[<?php echo esc_attr( $type ) ?>]" <?php echo checked(get_option('vo-html-sitemap-post-types')[$type] ?: false) ?>>
                                 <?php echo esc_html( get_post_type_object($type)->label ) ?>
                             </label>
                             <br>

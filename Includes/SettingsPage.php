@@ -16,9 +16,8 @@ class SettingsPage
             'type' => 'array',
             'sanitize_callback' => function ($value) {
                 return array_map(function (string $type) use ($value) {
-                    return isset($value[$type]);
-                }, get_post_types(['public' => true])
-                );
+                    return isset($value[$type]) && $value[$type];
+                }, get_post_types(['public' => true]));
             },
             'default' => [
                 'post' => true
