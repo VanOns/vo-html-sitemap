@@ -2,7 +2,7 @@ name: Create production release
 on:
   push:
     tags:
-      - *
+      - '*'
 
 env:
   PHP_VERSION: 8.0
