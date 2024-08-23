@@ -1,7 +1,6 @@
 <?php
 /**
  * Plugin Name:       Van Ons HTML Sitemap
- * Plugin URI:        https://van-ons.nl/
  * Description:       Van Ons plugin to add a HTML sitemap to your site.
  * Author:            Van Ons
  * Author URI:        https://van-ons.nl/
