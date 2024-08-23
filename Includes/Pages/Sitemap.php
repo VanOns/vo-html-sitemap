@@ -33,7 +33,7 @@ class Sitemap extends Page
 
         $qh = QueryHelper::getInstance();
 
-        $sql = "SELECT YEAR(post_date) AS year FROM {$qh->wpdb->posts} WHERE post_type IN ({$qh->getPostTypesPreparableCount()}) AND post_status = 'publish' GROUP BY year ORDER BY year ASC";
+        $sql = "SELECT YEAR(post_date) AS year FROM {$qh->wpdb->posts} WHERE post_type IN ({$qh->getPostTypesPreparableCount()}) AND post_status = 'publish' GROUP BY year ORDER BY year DESC";
         $years = $qh->query($sql, $qh->getPostTypesPreparableValues());
 
         return $this->items = array_map(fn($year) => new Year($year->year), $years);

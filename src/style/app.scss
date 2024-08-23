@@ -1,35 +1,36 @@
 .vo-html-sitemap {
-    .vo-html-sitemap__grid {
-        list-style: none;
-        padding: 0;
-        margin: 0;
+  .vo-html-sitemap__grid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 
-        display: flex;
-        flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 1rem;
+  }
+
+  .vo-html-sitemap__grid-item {
+    display: contents;
+
+    a {
+      margin: 0.5rem 1rem 0.5rem 0;
     }
+  }
 
-    .vo-html-sitemap__grid-item {
-        display: contents;
+  .vo-html-sitemap__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 
-        a {
-            margin: 1rem 2rem 1rem 0;
-        }
+    display: flex;
+    flex-direction: column;
+
+    .vo-html-sitemap__list-item {
+      display: contents;
+
+      a {
+        padding: 1rem 0;
+      }
     }
-
-    .vo-html-sitemap__list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-
-        display: flex;
-        flex-direction: column;
-
-        .vo-html-sitemap__list-item {
-            display: contents;
-
-            a {
-                padding: 1rem 0;
-            }
-        }
-    }
+  }
 }
