@@ -50,7 +50,7 @@ class Month extends Page
 
     public function getLatestDateShown(): DateTime
     {
-        $day = date('t', mktime(0, 0, 0, $this->number, 1, $this->year->number));
+        $day = gmdate('t', mktime(0, 0, 0, $this->number, 1, $this->year->number));
         return new DateTime("{$this->year->number}-{$this->number}-{$day}");
     }
 }

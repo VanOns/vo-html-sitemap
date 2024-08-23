@@ -14,9 +14,9 @@ class SettingsPage
     {
         register_setting('vo-html-sitemap-settings', 'vo-html-sitemap-post-types', [
             'type' => 'array',
-            'sanitize_callback' => function () {
-                return array_map(function (string $type) {
-                    return isset($_POST['vo-html-sitemap-post-types'][$type]);
+            'sanitize_callback' => function ($value) {
+                return array_map(function (string $type) use ($value) {
+                    return isset($value[$type]);
                 }, get_post_types(['public' => true])
                 );
             },
@@ -27,8 +27,8 @@ class SettingsPage
 
         register_setting('vo-html-sitemap-settings', 'vo-html-sitemap-page', [
             'type' => 'integer',
-            'sanitize_callback' => function () {
-                $id = $_POST['vo-html-sitemap-page'] ?? 0;
+            'sanitize_callback' => function ($value) {
+                $id = (int) $value;
                 $page = get_post($id);
 
                 return $page && $page?->post_type === 'page' ? $id : 0;

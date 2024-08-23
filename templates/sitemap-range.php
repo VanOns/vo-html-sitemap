@@ -15,7 +15,7 @@ use VOHTMLSitemap\Includes\Items\Page;
     </h2>
 
     <h3>
-        <?php esc_html_e(__('Posts')) ?>
+        <?php echo esc_html( __('Posts') ) ?>
     </h3>
 
     <ul class="vo-html-sitemap__list">

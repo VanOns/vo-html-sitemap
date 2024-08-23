@@ -13,7 +13,7 @@ use VOHTMLSitemap\Includes\Items\Year;
 <div class="vo-html-sitemap">
     <h2>
         <a href="<?php the_permalink() ?>"><?php the_title() ?></a> -
-        <?php esc_html_e($year->getLabel()) ?>
+        <?php echo esc_html( $year->getLabel() ) ?>
     </h2>
 
     <ul class="vo-html-sitemap__grid">
