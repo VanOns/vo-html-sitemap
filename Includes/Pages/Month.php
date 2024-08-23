@@ -40,7 +40,7 @@ class Month extends Page
 
     public function getLabel(): string
     {
-        return ucfirst(date_i18n('F', mktime(0, 0, 0, $this->number, 1, $this->year->number)));
+        return ucfirst(wp_date('F', mktime(0, 0, 0, $this->number, 1, $this->year->number)));
     }
 
     public function getUrl(): string
