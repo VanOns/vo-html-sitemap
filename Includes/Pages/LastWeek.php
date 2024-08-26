@@ -31,8 +31,8 @@ class LastWeek extends Page
             'post_type' => array_keys($postTypes),
             'post_status' => 'publish',
             'date_query' => [
-                'after' => gmdate('Y-m-d', strtotime('last week monday midnight')),
-                'before' => gmdate('Y-m-d', strtotime('last week sunday 23:59:59'))
+                'after' => gmdate('Y-m-d', strtotime("monday last week -1 day")),
+                'before' => gmdate('Y-m-d', strtotime("sunday last week +1 day")),
             ],
             'posts_per_page' => -1
         ]);
