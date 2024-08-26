@@ -14,6 +14,8 @@ use VOHTMLSitemap\Includes\Items\Page;
         <?php echo esc_html($page->getLabel()) ?>
     </h2>
 
+    <hr>
+
     <h3>
         <?php echo esc_html( __('Posts') ) ?>
     </h3>

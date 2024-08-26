@@ -19,11 +19,13 @@ use VOHTMLSitemap\Includes\Items\Year;
         <?php echo esc_html($month->getLabel()) ?>
     </h2>
 
-    <ul class="vo-html-sitemap__grid">
+    <hr>
+
+    <ol class="vo-html-sitemap__grid">
         <?php foreach ($days as $day): ?>
             <li class="vo-html-sitemap__grid-item">
                 <a href="<?php echo esc_attr($day->getUrl()) ?>"><?php echo esc_html($day->getLabel()) ?></a>
             </li>
         <?php endforeach; ?>
-    </ul>
+    </ol>
 </div>

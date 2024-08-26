@@ -1,36 +1,58 @@
 .vo-html-sitemap {
-  .vo-html-sitemap__grid {
-    list-style: none;
-    padding: 0;
-    margin: 0;
 
+  a {
+    text-decoration: none;
+  }
+
+  hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #e2e2e2;
+    margin: 1em 0;
+    padding: 0;
+  }
+
+  .vo-html-sitemap__grid {
+    padding: 0;
     display: grid;
-    grid-template-columns: repeat(4, minmax(100px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 1.25rem;
+
+    &.vo-html-sitemap__grid--2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   .vo-html-sitemap__grid-item {
-    display: contents;
-
-    a {
-      margin: 0.5rem 1rem 0.5rem 0;
-    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.1rem 0 1.1rem;
+    border-bottom: 1px solid #e2e2e2;
   }
 
   .vo-html-sitemap__list {
     list-style: none;
     padding: 0;
-    margin: 0;
+  }
 
+  .vo-html-sitemap__row {
+    list-style: none;
     display: flex;
-    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: 0;
+    margin-bottom: 1.25rem;
+    align-items: center;
+    column-gap: 2rem;
+    justify-content: center;
+  }
 
-    .vo-html-sitemap__list-item {
-      display: contents;
-
-      a {
-        padding: 1rem 0;
-      }
-    }
+  .vo-html-sitemap__row-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.1rem 0 1.1rem;
+    border-bottom: 1px solid #e2e2e2;
   }
 }

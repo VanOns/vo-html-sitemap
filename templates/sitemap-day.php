@@ -20,6 +20,8 @@ use VOHTMLSitemap\Includes\Items\Year;
         <?php echo esc_html($day->getLabel()) ?>
     </h2>
 
+    <hr>
+
     <h3>
         <?php echo esc_html( __('Posts') ) ?>
     </h3>
