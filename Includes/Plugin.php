@@ -23,6 +23,7 @@ class Plugin
         add_action('pre_get_posts', [$self, 'valiDateQuery']);
         add_action('the_content', [$self, 'sitemapContent']);
         add_action('wp_enqueue_scripts', [$self, 'enqueueAssets']);
+        add_action('init', [$self, 'loadTextDomain'], 0, 9);
     }
 
     /**
@@ -73,5 +74,10 @@ class Plugin
         $rootUrl = plugin_dir_url(VOHTMLSITEMAP_FILE);
 
         wp_register_style('vo-html-sitemap', $rootUrl . 'dist/main.css', [], VOHTMLSITEMAP_VERSION);
+    }
+
+    public function loadTextDomain(): void
+    {
+        load_plugin_textdomain('vo-html-sitemap', false, dirname(plugin_basename(VOHTMLSITEMAP_FILE)) . '/languages');
     }
 }

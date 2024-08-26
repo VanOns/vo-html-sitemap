@@ -1,79 +1,79 @@
-# Copyright (C) 2024 Van Ons
-# This file is distributed under the MIT.
 msgid ""
 msgstr ""
-"Project-Id-Version: Van Ons HTML Sitemap 1.0.0\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/vo-html-sitemap\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"POT-Creation-Date: 2024-08-26T08:46:04+00:00\n"
+"PO-Revision-Date: 2024-08-26 10:46+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: nl_NL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-08-26T08:46:04+00:00\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.5.0\n"
-"X-Domain: vo-html-sitemap\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.1\n"
+"X-Poedit-Basepath: .\n"
 
 #. Plugin Name of the plugin
 msgid "Van Ons HTML Sitemap"
-msgstr ""
+msgstr "Van Ons HTML Sitemap"
 
 #. Description of the plugin
 msgid "Van Ons plugin to add a HTML sitemap to your site."
-msgstr ""
+msgstr "Van Ons plugin om een HTML sitemap toe te voegen aan jou site."
 
 #. Author of the plugin
 msgid "Van Ons"
-msgstr ""
+msgstr "Van Ons"
 
 #. Author URI of the plugin
 msgid "https://van-ons.nl/"
-msgstr ""
+msgstr "https://van-ons.nl/"
 
 #: Includes/Pages/LastWeek.php:45
 msgid "Last week"
-msgstr ""
+msgstr "Vorige week"
 
 #: Includes/Pages/ThisWeek.php:45
 msgid "This week"
-msgstr ""
+msgstr "Deze week"
 
 #: Includes/Pages/Today.php:48
 msgid "Today"
-msgstr ""
+msgstr "Vandaag"
 
 #: Includes/Pages/Yesterday.php:48
 msgid "Yesterday"
-msgstr ""
+msgstr "Gisteren"
 
 #: Includes/SettingsPage.php:40
 msgid "VO HTML Sitemap Settings"
-msgstr ""
+msgstr "VO HTML Sitemap Instellingen"
 
 #: Includes/SettingsPage.php:50
 msgid "VO HTML Sitemap"
-msgstr ""
+msgstr "VO HTML Sitemap"
 
 #: Includes/SettingsPage.php:51
 msgid "HTML Sitemap"
-msgstr ""
+msgstr "HTML Sitemap"
 
 #: templates/admin/settings.php:9
 msgid "Post types"
-msgstr ""
+msgstr "Berichttypen"
 
 #: templates/admin/settings.php:14
 msgid "Post types to include in the sitemap"
-msgstr ""
+msgstr "Berichttypen die in de sitemap moeten worden opgenomen"
 
 #: templates/admin/settings.php:29
 msgid "Sitemap page"
-msgstr ""
+msgstr "Sitemap pagina"
 
 #: templates/admin/settings.php:34
 msgid "Select a page"
-msgstr ""
+msgstr "Selecteer een pagina"
 
 #: templates/sitemap-range.php:24
 msgid "No posts found"
-msgstr ""
+msgstr "Geen berichten gevonden"
