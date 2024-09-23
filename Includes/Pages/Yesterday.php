@@ -45,7 +45,7 @@ class Yesterday extends Page
 
     public function getLabel(): string
     {
-        return __('Yesterday', 'vohtmlsitemap');
+        return __('Yesterday', 'vo-html-sitemap');
     }
 
     public function getUrl(): string

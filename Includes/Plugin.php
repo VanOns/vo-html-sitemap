@@ -78,6 +78,6 @@ class Plugin
 
     public function loadTextDomain(): void
     {
-        load_plugin_textdomain('vohtmlsitemap', false, dirname(plugin_basename(VOHTMLSITEMAP_FILE)) . '/languages');
+        load_plugin_textdomain('vo-html-sitemap', false, dirname(plugin_basename(VOHTMLSITEMAP_FILE)) . '/languages');
     }
 }

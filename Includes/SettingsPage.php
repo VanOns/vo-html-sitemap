@@ -37,7 +37,7 @@ class SettingsPage
 
         add_settings_section(
             'vohtmlsitemap',
-            __('VO HTML Sitemap Settings', 'vohtmlsitemap'),
+            __('VO HTML Sitemap Settings', 'vo-html-sitemap'),
             '__return_false',
             'vohtmlsitemap'
         );
@@ -60,8 +60,8 @@ class SettingsPage
     {
         add_submenu_page(
             'options-general.php',
-            __('VO HTML Sitemap', 'vohtmlsitemap'),
-            __('HTML Sitemap', 'vohtmlsitemap'),
+            __('VO HTML Sitemap', 'vo-html-sitemap'),
+            __('HTML Sitemap', 'vo-html-sitemap'),
             'manage_options',
             'vohtmlsitemap',
             [self::class, 'renderSubmenuPage']

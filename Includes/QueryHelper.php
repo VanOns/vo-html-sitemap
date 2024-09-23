@@ -30,9 +30,4 @@ class QueryHelper
     {
         return array_keys(Settings::getPostTypes());
     }
-
-    public function query($sql, array $args = []): array
-    {
-        return $this->wpdb->get_results($this->wpdb->prepare($sql, $args));
-    }
 }

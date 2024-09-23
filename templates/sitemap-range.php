@@ -25,7 +25,7 @@ use VOHTMLSitemap\Includes\Pages\Page;
     <ul class="vo-html-sitemap__list">
         <?php if (empty($posts)): ?>
             <li class="vo-html-sitemap__list-item">
-                <?php esc_html_e('No posts found', 'vohtmlsitemap') ?>
+                <?php esc_html_e('No posts found', 'vo-html-sitemap') ?>
             </li>
         <?php else: ?>
             <?php foreach ($posts as $post): ?>
