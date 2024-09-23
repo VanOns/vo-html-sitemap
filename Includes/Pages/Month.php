@@ -32,8 +32,12 @@ class Month extends Page
 
         $qh = QueryHelper::getInstance();
 
-        $sql = "SELECT DAY(post_date) AS day FROM {$qh->wpdb->posts} WHERE YEAR(post_date) = %d AND MONTH(post_date) = %d AND post_type IN ({$qh->getPostTypesPreparableCount()}) AND post_status = 'publish' GROUP BY day ORDER BY day ASC";
-        $days = $qh->query($sql, array_merge([$this->year->number, $this->number], $qh->getPostTypesPreparableValues()));
+        $days = $qh->wpdb->get_results(
+            $qh->wpdb->prepare(
+                "SELECT DAY(post_date) AS day FROM {$qh->wpdb->posts} WHERE YEAR(post_date) = %d AND MONTH(post_date) = %d AND post_type IN ({$qh->getPostTypesPreparableCount()}) AND post_status = 'publish' GROUP BY day ORDER BY day ASC",
+                array_merge([$this->year->number, $this->number], $qh->getPostTypesPreparableValues())
+            )
+        );
 
         return $this->items = array_map(fn($day) => new Day($this->year, $this, $day->day), $days);
     }

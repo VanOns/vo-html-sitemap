@@ -1,11 +1,11 @@
 <?php
 /**
- * Plugin Name:       Van Ons HTML Sitemap
+ * Plugin Name:       VO HTML Sitemap
  * Description:       Van Ons plugin to add a HTML sitemap to your site.
  * Author:            Van Ons
  * Author URI:        https://van-ons.nl/
- * Version:           1.0.1
- * Text Domain:       vo-html-sitemap
+ * Version:           1.0.2
+ * Text Domain:       vohtmlsitemap
  * Domain Path:       /languages
  * Requires at least: 6.4
  * Requires PHP:      8.0
@@ -25,7 +25,7 @@ if( !defined('ABSPATH') || !function_exists('add_filter') ) {
 spl_autoload_register(__NAMESPACE__ . '\\autoload');
 
 // define plugin constants
-define('VOHTMLSITEMAP_VERSION', '1.0.1');
+define('VOHTMLSITEMAP_VERSION', '1.0.2');
 
 define('VOHTMLSITEMAP_ROOT', dirname(__FILE__) . '/');
 define('VOHTMLSITEMAP_ROOT_FILE', __FILE__);
@@ -53,3 +53,5 @@ function autoload( $class ) {
 
     require $result;
 }
+
+

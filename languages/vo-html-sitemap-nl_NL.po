@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/vo-html-sitemap\n"
-"POT-Creation-Date: 2024-08-26T08:46:04+00:00\n"
-"PO-Revision-Date: 2024-08-26 10:46+0200\n"
+"POT-Creation-Date: 2024-09-23T08:55:20+00:00\n"
+"PO-Revision-Date: 2024-09-23 10:56+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: nl_NL\n"
@@ -15,8 +15,9 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 
 #. Plugin Name of the plugin
-msgid "Van Ons HTML Sitemap"
-msgstr "Van Ons HTML Sitemap"
+#: Includes/SettingsPage.php:63
+msgid "VO HTML Sitemap"
+msgstr "VO HTML Sitemap"
 
 #. Description of the plugin
 msgid "Van Ons plugin to add a HTML sitemap to your site."
@@ -50,30 +51,29 @@ msgstr "Gisteren"
 msgid "VO HTML Sitemap Settings"
 msgstr "VO HTML Sitemap Instellingen"
 
-#: Includes/SettingsPage.php:50
-msgid "VO HTML Sitemap"
-msgstr "VO HTML Sitemap"
-
-#: Includes/SettingsPage.php:51
+#: Includes/SettingsPage.php:64
 msgid "HTML Sitemap"
 msgstr "HTML Sitemap"
 
-#: templates/admin/settings.php:9
+#: templates/admin/settings.php:15
 msgid "Post types"
 msgstr "Berichttypen"
 
-#: templates/admin/settings.php:14
+#: templates/admin/settings.php:20
 msgid "Post types to include in the sitemap"
 msgstr "Berichttypen die in de sitemap moeten worden opgenomen"
 
-#: templates/admin/settings.php:29
+#: templates/admin/settings.php:35
 msgid "Sitemap page"
 msgstr "Sitemap pagina"
 
-#: templates/admin/settings.php:34
+#: templates/admin/settings.php:40
 msgid "Select a page"
 msgstr "Selecteer een pagina"
 
-#: templates/sitemap-range.php:24
+#: templates/sitemap-range.php:28
 msgid "No posts found"
 msgstr "Geen berichten gevonden"
+
+#~ msgid "Van Ons HTML Sitemap"
+#~ msgstr "Van Ons HTML Sitemap"

@@ -16,14 +16,14 @@ class PagesRepository
 {
     public static function resolve(): ?Page
     {
-        if (get_query_var('vo-html-sitemap', false) !== 'true') {
+        if (get_query_var('vohtmlsitemap', false) !== 'true') {
             return null;
         }
 
-        $range = get_query_var('vo-html-sitemap-range', false);
-        $day = get_query_var('vo-html-sitemap-day', false);
-        $month = get_query_var('vo-html-sitemap-month', false);
-        $year = get_query_var('vo-html-sitemap-year', false);
+        $range = get_query_var('vohtmlsitemap-range', false);
+        $day = get_query_var('vohtmlsitemap-day', false);
+        $month = get_query_var('vohtmlsitemap-month', false);
+        $year = get_query_var('vohtmlsitemap-year', false);
 
         if ($range !== false && ($range = self::getRangeBySlug($range))) {
             return $range;

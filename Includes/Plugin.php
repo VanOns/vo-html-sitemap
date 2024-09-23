@@ -53,7 +53,7 @@ class Plugin
 
         $this->page = $page;
 
-        wp_enqueue_style('vo-html-sitemap');
+        wp_enqueue_style('vohtmlsitemap');
 
         if ($page->getLatestDateShown()->getTimestamp() < strtotime('-1 year')) {
             header('X-Robots-Tag: noindex');
@@ -73,11 +73,11 @@ class Plugin
     {
         $rootUrl = plugin_dir_url(VOHTMLSITEMAP_FILE);
 
-        wp_register_style('vo-html-sitemap', $rootUrl . 'dist/main.css', [], VOHTMLSITEMAP_VERSION);
+        wp_register_style('vohtmlsitemap', $rootUrl . 'dist/main.css', [], VOHTMLSITEMAP_VERSION);
     }
 
     public function loadTextDomain(): void
     {
-        load_plugin_textdomain('vo-html-sitemap', false, dirname(plugin_basename(VOHTMLSITEMAP_FILE)) . '/languages');
+        load_plugin_textdomain('vohtmlsitemap', false, dirname(plugin_basename(VOHTMLSITEMAP_FILE)) . '/languages');
     }
 }

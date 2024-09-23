@@ -1,6 +1,8 @@
 <?php
 
-use VOHTMLSitemap\Includes\Items\Page;
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
+use VOHTMLSitemap\Includes\Pages\Page;
 
 /**
  * @var $page Page
@@ -23,7 +25,7 @@ use VOHTMLSitemap\Includes\Items\Page;
     <ul class="vo-html-sitemap__list">
         <?php if (empty($posts)): ?>
             <li class="vo-html-sitemap__list-item">
-                <?php esc_html_e('No posts found', 'vo-html-sitemap') ?>
+                <?php esc_html_e('No posts found', 'vohtmlsitemap') ?>
             </li>
         <?php else: ?>
             <?php foreach ($posts as $post): ?>

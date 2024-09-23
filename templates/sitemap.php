@@ -1,6 +1,8 @@
 <?php
 
-use VOHTMLSitemap\Includes\Items\Year;
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
+use VOHTMLSitemap\Includes\Pages\Year;
 use VOHTMLSitemap\Includes\PagesRepository;
 
 /**

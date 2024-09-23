@@ -29,18 +29,18 @@ class RewriteRules
 
         add_rewrite_rule(
             "^{$base}\/([0-9]{4})\/?([0-9]{1,2})\/([0-9]{1,2})$",
-            'index.php?page_id=' . $page->ID . '&vo-html-sitemap=true&vo-html-sitemap-year=$matches[1]&vo-html-sitemap-month=$matches[2]&vo-html-sitemap-day=$matches[3]',
+            'index.php?page_id=' . $page->ID . '&vohtmlsitemap=true&vohtmlsitemap-year=$matches[1]&vohtmlsitemap-month=$matches[2]&vohtmlsitemap-day=$matches[3]',
             'top'
         );
         add_rewrite_rule(
             "^{$base}\/([0-9]{4})\/([0-9]{1,2})$",
-            'index.php?page_id=' . $page->ID . '&vo-html-sitemap=true&vo-html-sitemap-year=$matches[1]&vo-html-sitemap-month=$matches[2]',
+            'index.php?page_id=' . $page->ID . '&vohtmlsitemap=true&vohtmlsitemap-year=$matches[1]&vohtmlsitemap-month=$matches[2]',
             'top'
         );
 
         add_rewrite_rule(
             "^{$base}\/([0-9]{4})$",
-            'index.php?page_id=' . $page->ID . '&vo-html-sitemap=true&vo-html-sitemap-year=$matches[1]',
+            'index.php?page_id=' . $page->ID . '&vohtmlsitemap=true&vohtmlsitemap-year=$matches[1]',
             'top'
         );
 
@@ -52,24 +52,24 @@ class RewriteRules
 
         add_rewrite_rule(
             "^{$base}\/({$expression})$",
-            'index.php?page_id=' . $page->ID . '&vo-html-sitemap=true&vo-html-sitemap-range=$matches[1]',
+            'index.php?page_id=' . $page->ID . '&vohtmlsitemap=true&vohtmlsitemap-range=$matches[1]',
             'top'
         );
 
         add_rewrite_rule(
             "^{$base}$",
-            'index.php?page_id=' . $page->ID . '&vo-html-sitemap=true',
+            'index.php?page_id=' . $page->ID . '&vohtmlsitemap=true',
             'top'
         );
     }
 
     public static function addQueryVars(array $vars): array
     {
-        $vars[] = 'vo-html-sitemap';
-        $vars[] = 'vo-html-sitemap-range';
-        $vars[] = 'vo-html-sitemap-year';
-        $vars[] = 'vo-html-sitemap-month';
-        $vars[] = 'vo-html-sitemap-day';
+        $vars[] = 'vohtmlsitemap';
+        $vars[] = 'vohtmlsitemap-range';
+        $vars[] = 'vohtmlsitemap-year';
+        $vars[] = 'vohtmlsitemap-month';
+        $vars[] = 'vohtmlsitemap-day';
 
         return $vars;
     }

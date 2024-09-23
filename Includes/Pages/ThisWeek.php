@@ -42,7 +42,7 @@ class ThisWeek extends Page
 
     public function getLabel(): string
     {
-        return __('This week', 'vo-html-sitemap');
+        return __('This week', 'vohtmlsitemap');
     }
 
     public function getUrl(): string

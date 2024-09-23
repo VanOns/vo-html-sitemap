@@ -45,7 +45,7 @@ class Today extends Page
 
     public function getLabel(): string
     {
-        return __('Today', 'vo-html-sitemap');
+        return __('Today', 'vohtmlsitemap');
     }
 
     public function getUrl(): string

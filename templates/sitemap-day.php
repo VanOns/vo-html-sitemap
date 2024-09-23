@@ -1,8 +1,10 @@
 <?php
 
-use VOHTMLSitemap\Includes\Items\Day;
-use VOHTMLSitemap\Includes\Items\Month;
-use VOHTMLSitemap\Includes\Items\Year;
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
+use VOHTMLSitemap\Includes\Pages\Day;
+use VOHTMLSitemap\Includes\Pages\Month;
+use VOHTMLSitemap\Includes\Pages\Year;
 
 /**
  * @var $year Year

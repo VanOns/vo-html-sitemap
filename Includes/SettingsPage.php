@@ -12,7 +12,7 @@ class SettingsPage
 
     public static function registerSettings(): void
     {
-        register_setting('vo-html-sitemap-settings', 'vo-html-sitemap-post-types', [
+        register_setting('vohtmlsitemap-settings', 'vohtmlsitemap-post-types', [
             'type' => 'array',
             'sanitize_callback' => function ($value) {
                 return array_map(function (string $type) use ($value) {
@@ -24,7 +24,7 @@ class SettingsPage
             ]
         ]);
 
-        register_setting('vo-html-sitemap-settings', 'vo-html-sitemap-page', [
+        register_setting('vohtmlsitemap-settings', 'vohtmlsitemap-page', [
             'type' => 'integer',
             'sanitize_callback' => function ($value) {
                 $id = (int) $value;
@@ -36,21 +36,34 @@ class SettingsPage
         ]);
 
         add_settings_section(
-            'vo-html-sitemap',
-            __('VO HTML Sitemap Settings', 'vo-html-sitemap'),
+            'vohtmlsitemap',
+            __('VO HTML Sitemap Settings', 'vohtmlsitemap'),
             '__return_false',
-            'vo-html-sitemap'
+            'vohtmlsitemap'
         );
+
+        $settings = [
+            'vo-html-sitemap-post-types' => 'vohtmlsitemap-post-types',
+            'vo-html-sitemap-page' => 'vohtmlsitemap-page'
+        ];
+
+        // rename old settings, if they exist
+        foreach ($settings as $old => $new) {
+            if ($value = get_option($old)) {
+                update_option($new, $value);
+                delete_option($old);
+            }
+        }
     }
 
     public static function addSubmenuPage(): void
     {
         add_submenu_page(
             'options-general.php',
-            __('VO HTML Sitemap', 'vo-html-sitemap'),
-            __('HTML Sitemap', 'vo-html-sitemap'),
+            __('VO HTML Sitemap', 'vohtmlsitemap'),
+            __('HTML Sitemap', 'vohtmlsitemap'),
             'manage_options',
-            'vo-html-sitemap',
+            'vohtmlsitemap',
             [self::class, 'renderSubmenuPage']
         );
     }

@@ -30,8 +30,12 @@ class Year extends Page
 
         $qh = QueryHelper::getInstance();
 
-        $sql = "SELECT MONTH(post_date) AS month FROM {$qh->wpdb->posts} WHERE YEAR(post_date) = %d AND post_type IN ({$qh->getPostTypesPreparableCount()}) AND post_status = 'publish' GROUP BY month ORDER BY month ASC";
-        $months = $qh->query($sql, array_merge([$this->number], $qh->getPostTypesPreparableValues()));
+        $months = $qh->wpdb->get_results(
+            $qh->wpdb->prepare(
+                "SELECT MONTH(post_date) AS month FROM {$qh->wpdb->posts} WHERE YEAR(post_date) = %d AND post_type IN ({$qh->getPostTypesPreparableCount()}) AND post_status = 'publish' GROUP BY month ORDER BY month ASC",
+                array_merge([$this->number], $qh->getPostTypesPreparableValues())
+            )
+        );
 
         return $this->items = array_map(fn($month) => new Month($this, $month->month), $months);
     }
