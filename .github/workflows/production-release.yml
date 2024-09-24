@@ -6,7 +6,6 @@ on:
 
 env:
   PHP_VERSION: 8.0
-  ZIP_NAME: vo-html-sitemap.zip
 
 jobs:
   release:
@@ -16,23 +15,33 @@ jobs:
       - name: 📄 Clone Repository
         uses: actions/checkout@v3
 
-      - name : ⚙️ Set up Node.js
-        uses : actions/setup-node@v3
-        with :
-          node-version-file : '.nvmrc'
-          cache : 'npm'
-          cache-dependency-path : package-lock.json
+      - name: ⚙️ Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'npm'
+          cache-dependency-path: package-lock.json
 
-      - name : ⬇ Install npm dependencies
-        run : |
+      - name: ⬇ Install npm dependencies
+        run: |
           npm ci
 
-      - name : 📦 Build and zip the plugin
-        run : |
-          npm run package
+      - name: 📦 Build the plugin
+        run: |
+          npm run build
+
+      - name: WordPress Plugin Deploy
+        id: deploy
+        uses: 10up/action-wordpress-plugin-deploy@stable
+        with:
+          generate-zip: true
+        env:
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          SLUG: vo-html-sitemap
 
       - name: 🚀 Create a new release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: ${{ env.ZIP_NAME }}
+          artifacts: ${{ steps.deploy.outputs.zip_file }}
           generateReleaseNotes: true
