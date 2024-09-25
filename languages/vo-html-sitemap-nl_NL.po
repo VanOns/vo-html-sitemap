@@ -2,78 +2,81 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/vo-html-sitemap\n"
-"POT-Creation-Date: 2024-09-23T13:25:27+00:00\n"
-"PO-Revision-Date: 2024-09-23 15:25+0200\n"
-"Last-Translator: \n"
+"POT-Creation-Date: 2024-09-25T13:24:39+00:00\n"
+"PO-Revision-Date: 2024-09-25 15:27+0200\n"
+"Last-Translator: Danique Wijnalda <danique@van-ons.nl>\n"
 "Language-Team: \n"
 "Language: nl_NL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1\n"
+"X-Generator: Poedit 3.4.2\n"
 "X-Poedit-Basepath: .\n"
 
 #. Plugin Name of the plugin
-#: Includes/SettingsPage.php:63
+#: vo-html-sitemap.php src/Core/SettingsPage.php:63
 msgid "VO HTML Sitemap"
 msgstr "VO HTML Sitemap"
 
 #. Description of the plugin
-msgid "Van Ons plugin to add a HTML sitemap to your site."
+#: vo-html-sitemap.php
+msgid "Van Ons plugin to add an HTML sitemap to your site."
 msgstr "Van Ons plugin om een HTML sitemap toe te voegen aan jou site."
 
 #. Author of the plugin
+#: vo-html-sitemap.php
 msgid "Van Ons"
 msgstr "Van Ons"
 
 #. Author URI of the plugin
+#: vo-html-sitemap.php
 msgid "https://van-ons.nl/"
 msgstr "https://van-ons.nl/"
 
-#: Includes/Pages/LastWeek.php:45
-msgid "Last week"
-msgstr "Vorige week"
-
-#: Includes/Pages/ThisWeek.php:45
-msgid "This week"
-msgstr "Deze week"
-
-#: Includes/Pages/Today.php:48
-msgid "Today"
-msgstr "Vandaag"
-
-#: Includes/Pages/Yesterday.php:48
-msgid "Yesterday"
-msgstr "Gisteren"
-
-#: Includes/SettingsPage.php:40
-msgid "VO HTML Sitemap Settings"
-msgstr "VO HTML Sitemap Instellingen"
-
-#: Includes/SettingsPage.php:64
-msgid "HTML Sitemap"
-msgstr "HTML Sitemap"
-
-#: templates/admin/settings.php:15
+#: resources/views/admin/settings.php:18
 msgid "Post types"
 msgstr "Berichttypen"
 
-#: templates/admin/settings.php:20
+#: resources/views/admin/settings.php:23
 msgid "Post types to include in the sitemap"
 msgstr "Berichttypen die in de sitemap moeten worden opgenomen"
 
-#: templates/admin/settings.php:35
+#: resources/views/admin/settings.php:38
 msgid "Sitemap page"
 msgstr "Sitemap pagina"
 
-#: templates/admin/settings.php:40
+#: resources/views/admin/settings.php:43
 msgid "Select a page"
 msgstr "Selecteer een pagina"
 
-#: templates/sitemap-range.php:28
+#: resources/views/sitemap-range.php:31
 msgid "No posts found"
 msgstr "Geen berichten gevonden"
+
+#: src/Core/SettingsPage.php:40
+msgid "VO HTML Sitemap Settings"
+msgstr "VO HTML Sitemap Instellingen"
+
+#: src/Core/SettingsPage.php:64
+msgid "HTML Sitemap"
+msgstr "HTML Sitemap"
+
+#: src/Pages/LastWeek.php:45
+msgid "Last week"
+msgstr "Vorige week"
+
+#: src/Pages/ThisWeek.php:45
+msgid "This week"
+msgstr "Deze week"
+
+#: src/Pages/Today.php:48
+msgid "Today"
+msgstr "Vandaag"
+
+#: src/Pages/Yesterday.php:48
+msgid "Yesterday"
+msgstr "Gisteren"
 
 #~ msgid "Van Ons HTML Sitemap"
 #~ msgstr "Van Ons HTML Sitemap"

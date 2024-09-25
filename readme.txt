@@ -19,7 +19,7 @@ This plugin adds an HTML sitemap to your WordPress website. This sitemap allows 
 
 ## Why use an HTML sitemap?
 
-An HTML sitemap is a great way to show your website structure to your visitors. It helps them to easily navigate your website. Besides that, it also helps search engine crawlers to index your website. This can help to improve your SEO.
+An HTML sitemap is a great way to show your website structure to your visitors. It helps them to easily navigate your website. Besides that, it helps search engine crawlers to index your website. This can help to improve your SEO.
 
 ## Features
 
