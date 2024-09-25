@@ -1,16 +1,16 @@
 <?php
 
-namespace VOHTMLSitemap\Includes;
+namespace VOHTMLSitemap\Core;
 
-use VOHTMLSitemap\Includes\Pages\Day;
-use VOHTMLSitemap\Includes\Pages\LastWeek;
-use VOHTMLSitemap\Includes\Pages\Month;
-use VOHTMLSitemap\Includes\Pages\Page;
-use VOHTMLSitemap\Includes\Pages\Sitemap;
-use VOHTMLSitemap\Includes\Pages\ThisWeek;
-use VOHTMLSitemap\Includes\Pages\Today;
-use VOHTMLSitemap\Includes\Pages\Year;
-use VOHTMLSitemap\Includes\Pages\Yesterday;
+use VOHTMLSitemap\Pages\Day;
+use VOHTMLSitemap\Pages\LastWeek;
+use VOHTMLSitemap\Pages\Month;
+use VOHTMLSitemap\Pages\Page;
+use VOHTMLSitemap\Pages\Sitemap;
+use VOHTMLSitemap\Pages\ThisWeek;
+use VOHTMLSitemap\Pages\Today;
+use VOHTMLSitemap\Pages\Year;
+use VOHTMLSitemap\Pages\Yesterday;
 
 class PagesRepository
 {
@@ -27,7 +27,7 @@ class PagesRepository
 
         if ($range !== false && ($range = self::getRangeBySlug($range))) {
             return $range;
-        } else if ($range !== false) {
+        } elseif ($range !== false) {
             return null;
         }
 
@@ -69,7 +69,7 @@ class PagesRepository
             new Today(),
             new Yesterday(),
             new ThisWeek(),
-            new LastWeek()
+            new LastWeek(),
         ];
     }
 

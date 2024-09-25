@@ -1,10 +1,11 @@
 <?php
 
-namespace VOHTMLSitemap\Includes\Pages;
+namespace VOHTMLSitemap\Pages;
 
-use VOHTMLSitemap\Includes\QueryHelper;
-use VOHTMLSitemap\Includes\Settings;
-use VOHTMLSitemap\Includes\Template;
+use DateTime;
+use VOHTMLSitemap\Core\QueryHelper;
+use VOHTMLSitemap\Core\Settings;
+use VOHTMLSitemap\Core\Template;
 
 class Sitemap extends Page
 {
@@ -12,8 +13,7 @@ class Sitemap extends Page
 
     protected int $id = 0;
 
-    public function __construct(
-    )
+    public function __construct()
     {
         $this->id = Settings::getPageId();
     }
@@ -21,7 +21,7 @@ class Sitemap extends Page
     public function content(): string
     {
         return Template::get('sitemap', [
-            'years' => $this->getItems()
+            'years' => $this->getItems(),
         ]);
     }
 
@@ -40,7 +40,7 @@ class Sitemap extends Page
             )
         );
 
-        return $this->items = array_map(fn($year) => new Year($year->year), $years);
+        return $this->items = array_map(fn ($year) => new Year($year->year), $years);
     }
 
     public function getLabel(): string
@@ -53,8 +53,8 @@ class Sitemap extends Page
         return $this->buildUrlPath();
     }
 
-    public function getLatestDateShown(): \DateTime
+    public function getLatestDateShown(): DateTime
     {
-        return new \DateTime('today');
+        return new DateTime('today');
     }
 }

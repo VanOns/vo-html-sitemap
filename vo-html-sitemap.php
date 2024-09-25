@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:       VO HTML Sitemap
- * Description:       Van Ons plugin to add a HTML sitemap to your site.
+ * Description:       Van Ons plugin to add an HTML sitemap to your site.
  * Author:            Van Ons
  * Author URI:        https://van-ons.nl/
  * Version:           1.0.4
@@ -16,42 +16,44 @@ namespace VOHTMLSitemap;
 
 use Exception;
 
-if( !defined('ABSPATH') || !function_exists('add_filter') ) {
+if (!defined('ABSPATH') || !function_exists('add_filter')) {
     header('Status: 403 Forbidden');
     header('HTTP/1.1 403 Forbidden');
     exit();
 }
 
-spl_autoload_register(__NAMESPACE__ . '\\autoload');
-
-// define plugin constants
+// Define plugin constants.
 define('VOHTMLSITEMAP_VERSION', '1.0.4');
 
-define('VOHTMLSITEMAP_ROOT', dirname(__FILE__) . '/');
+define('VOHTMLSITEMAP_ROOT', __DIR__ . '/');
 define('VOHTMLSITEMAP_ROOT_FILE', __FILE__);
 define('VOHTMLSITEMAP_FILE', plugin_basename(__FILE__));
-define('VOHTMLSITEMAP_PREFIX', strtolower(__NAMESPACE__));
-
-Includes\Plugin::init();
+define('VOHTMLSITEMAP_NAMESPACE', 'VOHTMLSitemap');
+define('VOHTMLSITEMAP_PREFIX', strtolower(VOHTMLSITEMAP_NAMESPACE));
+define('VOHTMLSITEMAP_RESOURCES_PATH', VOHTMLSITEMAP_ROOT . 'resources/');
+define('VOHTMLSITEMAP_SRC_PATH', VOHTMLSITEMAP_ROOT . 'src/');
 
 /**
  * Autoload classes
  *
- * @param $class
  * @throws Exception
  */
-function autoload( $class ) {
-    if( !strstr($class, __NAMESPACE__) ) return;
-
-    $result = str_replace(__NAMESPACE__ . '\\', '', $class);
-    $result = str_replace('\\', '/', $result);
-	$result .= '.php';
-
-    if (!file_exists( VOHTMLSITEMAP_ROOT . $result)) {
-    	return;
+function autoload(string $class): void
+{
+    if (!str_contains($class, VOHTMLSITEMAP_NAMESPACE)) {
+        return;
     }
 
-    require $result;
+    $result = str_replace([VOHTMLSITEMAP_NAMESPACE . '\\', '\\'], ['', '/'], $class);
+    $result .= '.php';
+
+    if (!file_exists(VOHTMLSITEMAP_SRC_PATH . $result)) {
+        return;
+    }
+
+    require VOHTMLSITEMAP_SRC_PATH . $result;
 }
 
+spl_autoload_register(VOHTMLSITEMAP_NAMESPACE . '\\autoload');
 
+Plugin::init();

@@ -1,6 +1,6 @@
 <?php
 
-namespace VOHTMLSitemap\Includes;
+namespace VOHTMLSitemap\Core;
 
 class Template
 {
@@ -16,7 +16,7 @@ class Template
 
     private static function getTemplatePath(string $templateName): string
     {
-        return realpath(VOHTMLSITEMAP_ROOT . 'templates/' . $templateName . '.php');
+        return realpath(VOHTMLSITEMAP_RESOURCES_PATH . 'views/' . $templateName . '.php');
     }
 
     public static function get(string $templateName, array $data = []): string

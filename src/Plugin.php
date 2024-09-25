@@ -1,17 +1,18 @@
 <?php
 
-namespace VOHTMLSitemap\Includes;
+namespace VOHTMLSitemap;
 
-use VOHTMLSitemap\Includes\Pages\Page;
+use VOHTMLSitemap\Core\PagesRepository;
+use VOHTMLSitemap\Core\RewriteRules;
+use VOHTMLSitemap\Core\SettingsPage;
+use VOHTMLSitemap\Pages\Page;
 use WP_Query;
 
 class Plugin
 {
     protected ?Page $page = null;
 
-    protected function __construct()
-    {
-    }
+    protected function __construct() {}
 
     public static function init(): void
     {
@@ -20,7 +21,7 @@ class Plugin
         SettingsPage::init();
         RewriteRules::init();
 
-        add_action('pre_get_posts', [$self, 'valiDateQuery']);
+        add_action('pre_get_posts', [$self, 'validateQuery']);
         add_action('the_content', [$self, 'sitemapContent']);
         add_action('wp_enqueue_scripts', [$self, 'enqueueAssets']);
         add_action('init', [$self, 'loadTextDomain'], 0, 9);
@@ -30,11 +31,12 @@ class Plugin
      * Check if the given date is a valid date and there are items for that date, otherwise set the query to a 404.
      *
      * @param WP_Query $query
+     *
      * @return void
      *
      * In Dutch, we call this a woordgrapje, a word joke. The function name is a combination of validate and date.
      */
-    public function valiDateQuery(WP_Query $query): void
+    public function validateQuery(WP_Query $query): void
     {
         if (!$query->is_main_query()) {
             return;

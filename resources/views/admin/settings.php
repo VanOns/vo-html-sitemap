@@ -1,6 +1,9 @@
 <?php
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+// Exit if accessed directly.
+if (!defined('ABSPATH')) {
+    exit;
+}
 
 ?>
 
@@ -21,8 +24,8 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
                         </legend>
                         <?php foreach (get_post_types(['public' => true]) as $type): ?>
                             <label>
-                                <input type="checkbox" name="vohtmlsitemap-post-types[<?php echo esc_attr( $type ) ?>]" <?php echo checked(get_option('vohtmlsitemap-post-types')[$type] ?: false) ?>>
-                                <?php echo esc_html( get_post_type_object($type)->label ) ?>
+                                <input type="checkbox" name="vohtmlsitemap-post-types[<?php echo esc_attr($type) ?>]" <?php echo checked(get_option('vohtmlsitemap-post-types')[$type] ?: false) ?>>
+                                <?php echo esc_html(get_post_type_object($type)->label) ?>
                             </label>
                             <br>
                         <?php endforeach; ?>
@@ -40,7 +43,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
                         <option value="0"><?php esc_html_e('Select a page', 'vo-html-sitemap') ?></option>
                         <?php foreach (get_posts(['post_type' => 'page', 'posts_per_page' => -1]) as $page): ?>
                             <option value="<?php echo esc_attr($page->ID) ?>" <?php echo selected(get_option('vohtmlsitemap-page'), $page->ID) ?>>
-                                <?php echo esc_html( $page->post_title ) ?>
+                                <?php echo esc_html($page->post_title) ?>
                             </option>
                         <?php endforeach; ?>
                     </select>

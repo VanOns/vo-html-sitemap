@@ -1,9 +1,12 @@
 <?php
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+// Exit if accessed directly.
+if (!defined('ABSPATH')) {
+    exit;
+}
 
-use VOHTMLSitemap\Includes\Pages\Month;
-use VOHTMLSitemap\Includes\Pages\Year;
+use VOHTMLSitemap\Pages\Month;
+use VOHTMLSitemap\Pages\Year;
 
 /**
  * @var $year Year
@@ -15,7 +18,7 @@ use VOHTMLSitemap\Includes\Pages\Year;
 <div class="vo-html-sitemap">
     <h2>
         <a href="<?php the_permalink() ?>"><?php the_title() ?></a> -
-        <?php echo esc_html( $year->getLabel() ) ?>
+        <?php echo esc_html($year->getLabel()) ?>
     </h2>
 
     <hr>

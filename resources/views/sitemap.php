@@ -1,9 +1,12 @@
 <?php
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+// Exit if accessed directly.
+if (!defined('ABSPATH')) {
+    exit;
+}
 
-use VOHTMLSitemap\Includes\Pages\Year;
-use VOHTMLSitemap\Includes\PagesRepository;
+use VOHTMLSitemap\Core\PagesRepository;
+use VOHTMLSitemap\Pages\Year;
 
 /**
  * @var $years Year[]

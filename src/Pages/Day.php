@@ -1,10 +1,10 @@
 <?php
 
-namespace VOHTMLSitemap\Includes\Pages;
+namespace VOHTMLSitemap\Pages;
 
 use DateTime;
-use VOHTMLSitemap\Includes\Settings;
-use VOHTMLSitemap\Includes\Template;
+use VOHTMLSitemap\Core\Settings;
+use VOHTMLSitemap\Core\Template;
 use WP_Query;
 
 class Day extends Page
@@ -13,9 +13,7 @@ class Day extends Page
         public Year  $year,
         public Month $month,
         public int   $number
-    )
-    {
-    }
+    ) {}
 
     public function content(): string
     {
@@ -23,7 +21,7 @@ class Day extends Page
             'year' => $this->year,
             'month' => $this->month,
             'day' => $this,
-            'posts' => $this->getItems()
+            'posts' => $this->getItems(),
         ]);
     }
 
@@ -41,9 +39,9 @@ class Day extends Page
             'date_query' => [
                 'year' => $this->year->number,
                 'month' => $this->month->number,
-                'day' => $this->number
+                'day' => $this->number,
             ],
-            'posts_per_page' => -1
+            'posts_per_page' => -1,
         ]);
 
         return $this->items = $query->posts;

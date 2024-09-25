@@ -3,8 +3,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     entry: [
-        './src/style/app.scss',
-        './src/js/app.js'
+        './resources/style/app.scss',
+        './resources/js/app.js'
     ],
     devtool: "source-map",
     module: {
