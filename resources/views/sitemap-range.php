@@ -1,8 +1,11 @@
 <?php
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+// Exit if accessed directly.
+if (!defined('ABSPATH')) {
+    exit;
+}
 
-use VOHTMLSitemap\Includes\Pages\Page;
+use VOHTMLSitemap\Pages\Page;
 
 /**
  * @var $page Page
@@ -19,7 +22,7 @@ use VOHTMLSitemap\Includes\Pages\Page;
     <hr>
 
     <h3>
-        <?php echo esc_html( __('Posts') ) ?>
+        <?php echo esc_html(__('Posts')) ?>
     </h3>
 
     <ul class="vo-html-sitemap__list">

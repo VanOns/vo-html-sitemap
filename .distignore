@@ -17,4 +17,4 @@ package.json
 package-lock.json
 docker-compose.yml
 Dockerfile
-docker-compose-override.yml'
+docker-compose-override.yml

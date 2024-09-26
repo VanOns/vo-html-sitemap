@@ -1,13 +1,13 @@
 <?php
 
-namespace VOHTMLSitemap\Includes\Pages;
+namespace VOHTMLSitemap\Pages;
 
 use DateTime;
-use VOHTMLSitemap\Includes\Settings;
-use VOHTMLSitemap\Includes\Template;
+use VOHTMLSitemap\Core\Settings;
+use VOHTMLSitemap\Core\Template;
 use WP_Query;
 
-class Today extends Page
+class LastWeek extends Page
 {
     public bool $showWhenEmpty = true;
 
@@ -15,7 +15,7 @@ class Today extends Page
     {
         return Template::get('sitemap-range', [
             'page' => $this,
-            'posts' => $this->getItems()
+            'posts' => $this->getItems(),
         ]);
     }
 
@@ -27,17 +27,14 @@ class Today extends Page
 
         $postTypes = Settings::getPostTypes();
 
-        $today = new DateTime('today');
-
         $query = new WP_Query([
             'post_type' => array_keys($postTypes),
             'post_status' => 'publish',
             'date_query' => [
-                'year' => $today->format('Y'),
-                'month' => $today->format('m'),
-                'day' => $today->format('d')
+                'after' => gmdate('Y-m-d', strtotime("monday last week -1 day")),
+                'before' => gmdate('Y-m-d', strtotime("sunday last week +1 day")),
             ],
-            'posts_per_page' => -1
+            'posts_per_page' => -1,
         ]);
 
         return $this->items = $query->posts;
@@ -45,16 +42,16 @@ class Today extends Page
 
     public function getLabel(): string
     {
-        return __('Today', 'vo-html-sitemap');
+        return __('Last week', 'vo-html-sitemap');
     }
 
     public function getUrl(): string
     {
-        return $this->buildUrlPath([$this->getSlug()]);
+        return $this->buildUrlPath([sanitize_title($this->getLabel())]);
     }
 
     public function getLatestDateShown(): DateTime
     {
-        return new DateTime('today');
+        return new DateTime('last week');
     }
 }

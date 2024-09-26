@@ -1,9 +1,9 @@
 <?php
 
-namespace VOHTMLSitemap\Includes\Pages;
+namespace VOHTMLSitemap\Pages;
 
 use DateTime;
-use VOHTMLSitemap\Includes\Settings;
+use VOHTMLSitemap\Core\Settings;
 use WP_Post;
 
 abstract class Page

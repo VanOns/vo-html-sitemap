@@ -1,6 +1,6 @@
 <?php
 
-namespace VOHTMLSitemap\Includes;
+namespace VOHTMLSitemap\Core;
 
 class QueryHelper
 {

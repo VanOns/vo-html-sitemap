@@ -1,6 +1,6 @@
 <?php
 
-namespace VOHTMLSitemap\Includes;
+namespace VOHTMLSitemap\Core;
 
 class SettingsPage
 {
@@ -20,8 +20,8 @@ class SettingsPage
                 }, get_post_types(['public' => true]));
             },
             'default' => [
-                'post' => true
-            ]
+                'post' => true,
+            ],
         ]);
 
         register_setting('vohtmlsitemap-settings', 'vohtmlsitemap-page', [
@@ -32,7 +32,7 @@ class SettingsPage
 
                 return $page && $page?->post_type === 'page' ? $id : 0;
             },
-            'default' => 0
+            'default' => 0,
         ]);
 
         add_settings_section(
@@ -44,7 +44,7 @@ class SettingsPage
 
         $settings = [
             'vo-html-sitemap-post-types' => 'vohtmlsitemap-post-types',
-            'vo-html-sitemap-page' => 'vohtmlsitemap-page'
+            'vo-html-sitemap-page' => 'vohtmlsitemap-page',
         ];
 
         // rename old settings, if they exist

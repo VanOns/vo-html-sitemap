@@ -1,10 +1,13 @@
 <?php
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+// Exit if accessed directly.
+if (!defined('ABSPATH')) {
+    exit;
+}
 
-use VOHTMLSitemap\Includes\Pages\Day;
-use VOHTMLSitemap\Includes\Pages\Month;
-use VOHTMLSitemap\Includes\Pages\Year;
+use VOHTMLSitemap\Pages\Day;
+use VOHTMLSitemap\Pages\Month;
+use VOHTMLSitemap\Pages\Year;
 
 /**
  * @var $year Year
@@ -25,7 +28,7 @@ use VOHTMLSitemap\Includes\Pages\Year;
     <hr>
 
     <h3>
-        <?php echo esc_html( __('Posts') ) ?>
+        <?php echo esc_html(__('Posts')) ?>
     </h3>
 
     <ul class="vo-html-sitemap__list">

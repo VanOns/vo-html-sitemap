@@ -1,26 +1,24 @@
 <?php
 
-namespace VOHTMLSitemap\Includes\Pages;
+namespace VOHTMLSitemap\Pages;
 
 use DateTime;
-use VOHTMLSitemap\Includes\QueryHelper;
-use VOHTMLSitemap\Includes\Template;
+use VOHTMLSitemap\Core\QueryHelper;
+use VOHTMLSitemap\Core\Template;
 
 class Month extends Page
 {
     public function __construct(
         public Year $year,
         public int  $number
-    )
-    {
-    }
+    ) {}
 
     public function content(): string
     {
         return Template::get('sitemap-month', [
             'year' => $this->year,
             'month' => $this,
-            'days' => $this->getItems()
+            'days' => $this->getItems(),
         ]);
     }
 
@@ -39,7 +37,7 @@ class Month extends Page
             )
         );
 
-        return $this->items = array_map(fn($day) => new Day($this->year, $this, $day->day), $days);
+        return $this->items = array_map(fn ($day) => new Day($this->year, $this, $day->day), $days);
     }
 
     public function getLabel(): string

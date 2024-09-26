@@ -1,12 +1,14 @@
 <?php
 
-namespace VOHTMLSitemap\Includes;
+namespace VOHTMLSitemap\Core;
 
 class Settings
 {
     public static function getPostTypes(): array
     {
-        return array_filter(get_option('vohtmlsitemap-post-types', ['post' => true]));
+        return array_filter(
+            get_option('vohtmlsitemap-post-types', ['post' => true])
+        );
     }
 
     public static function getPageId(): int

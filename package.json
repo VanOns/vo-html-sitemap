@@ -11,6 +11,8 @@
   "scripts": {
     "build": "webpack --mode production",
     "dev": "webpack --mode development --watch",
+    "poedit": "wp i18n make-pot . languages/vo-html-sitemap.pot",
+    "poedit:nl": "open -a poedit languages/vo-html-sitemap-nl_NL.po",
     "package": "npm run build && node ./wp-package-plugin.js"
   },
   "devDependencies": {
