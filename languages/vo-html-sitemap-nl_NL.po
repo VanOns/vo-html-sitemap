@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/vo-html-sitemap\n"
-"POT-Creation-Date: 2024-09-25T13:24:39+00:00\n"
-"PO-Revision-Date: 2024-09-25 15:27+0200\n"
+"POT-Creation-Date: 2024-09-26T13:22:22+00:00\n"
+"PO-Revision-Date: 2024-09-26 15:22+0200\n"
 "Last-Translator: Danique Wijnalda <danique@van-ons.nl>\n"
 "Language-Team: \n"
 "Language: nl_NL\n"
@@ -11,26 +11,23 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.1\n"
 "X-Poedit-Basepath: .\n"
 
 #. Plugin Name of the plugin
-#: vo-html-sitemap.php src/Core/SettingsPage.php:63
+#: src/Core/SettingsPage.php:63
 msgid "VO HTML Sitemap"
 msgstr "VO HTML Sitemap"
 
 #. Description of the plugin
-#: vo-html-sitemap.php
 msgid "Van Ons plugin to add an HTML sitemap to your site."
 msgstr "Van Ons plugin om een HTML sitemap toe te voegen aan jou site."
 
 #. Author of the plugin
-#: vo-html-sitemap.php
 msgid "Van Ons"
 msgstr "Van Ons"
 
 #. Author URI of the plugin
-#: vo-html-sitemap.php
 msgid "https://van-ons.nl/"
 msgstr "https://van-ons.nl/"
 
