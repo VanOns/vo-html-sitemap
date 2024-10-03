@@ -1,0 +1,27 @@
+{
+  "plugins": [
+    "vo-html-sitemap"
+  ],
+  "steps": [
+    {
+      "step": "runPHP",
+      "code": "<?php require_once'wordpress/wp-load.php';$post=wp_insert_post(array('post_title'=>'Sitemap','post_status'=>'publish','post_type'=>'page'));update_option('vohtmlsitemap-page',$post);update_option('permalink_structure', '/%postname%/');for($i=0;$i<500;$i++){$post=array('post_title'=>'Post'.$i,'post_content'=>'Thisispost'.$i,'post_status'=>'publish','post_date'=>date('Y-m-dH:i:s',strtotime('-'.rand(0,4).'years-'.rand(0,365).'days-'.rand(0,24).'hours-'.rand(0,60).'minutes-'.rand(0,60).'seconds')),);wp_insert_post($post);} ?>"
+    },
+    {
+      "step": "runPHP",
+      "code": "<?php require_once'wordpress/wp-load.php';flush_rewrite_rules();?>"
+    }
+  ],
+  "preferredVersions": {
+    "php": "8.0",
+    "wp": "6.6"
+  },
+  "landingPage": "/sitemap",
+  "features": {
+    "networking": true
+  },
+  "phpExtensionBundles": [
+    "kitchen-sink"
+  ],
+  "login": true
+}
