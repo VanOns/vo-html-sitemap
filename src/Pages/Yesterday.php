@@ -15,7 +15,7 @@ class Yesterday extends Page
     {
         return Template::get('sitemap-range', [
             'page' => $this,
-            'posts' => $this->getItems(),
+            'postTypes' => $this->getItems(),
         ]);
     }
 
@@ -38,9 +38,10 @@ class Yesterday extends Page
                 'day' => $yesterday->format('d'),
             ],
             'posts_per_page' => -1,
+            'orderby' => ['type', 'date'],
         ]);
 
-        return $this->items = $query->posts;
+        return $this->items = $this->splitByPostType( $query->posts );
     }
 
     public function getLabel(): string

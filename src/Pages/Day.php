@@ -21,7 +21,7 @@ class Day extends Page
             'year' => $this->year,
             'month' => $this->month,
             'day' => $this,
-            'posts' => $this->getItems(),
+            'postTypes' => $this->getItems(),
         ]);
     }
 
@@ -41,10 +41,11 @@ class Day extends Page
                 'month' => $this->month->number,
                 'day' => $this->number,
             ],
+            'orderby' => ['type', 'date'],
             'posts_per_page' => -1,
         ]);
 
-        return $this->items = $query->posts;
+        return $this->items = $this->splitByPostType($query->posts);
     }
 
     public function getLabel(): string

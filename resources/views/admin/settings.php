@@ -41,12 +41,19 @@ if (!defined('ABSPATH')) {
                 <td>
                     <select id="vohtmlsitemap-page" name="vohtmlsitemap-page">
                         <option value="0"><?php esc_html_e('Select a page', 'vo-html-sitemap') ?></option>
-                        <?php foreach (get_posts(['post_type' => 'page', 'posts_per_page' => -1]) as $page): ?>
+                        <?php foreach (get_posts(['post_type' => 'page', 'posts_per_page' => -1, 'post_status' => 'any']) as $page): ?>
                             <option value="<?php echo esc_attr($page->ID) ?>" <?php echo selected(get_option('vohtmlsitemap-page'), $page->ID) ?>>
                                 <?php echo esc_html($page->post_title) ?>
                             </option>
                         <?php endforeach; ?>
                     </select>
+                    <p>
+                        <?php esc_html_e('After changing this setting you need to re-save your permalink settings.', 'vo-html-sitemap') ?>
+                        <br>
+                        <a href="<?php echo esc_url(admin_url('options-permalink.php')) ?>">
+                            <?php esc_html_e('Permalink Settings', 'vo-html-sitemap') ?>
+                        </a>
+                    </p>
                 </td>
             </tr>
         </table>

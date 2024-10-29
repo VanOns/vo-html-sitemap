@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-10-03T09:42:01+00:00\n"
+"POT-Creation-Date: 2024-10-29T09:49:29+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.5.0\n"
 "X-Domain: vo-html-sitemap\n"
@@ -47,8 +47,16 @@ msgstr ""
 msgid "Select a page"
 msgstr ""
 
-#: resources/views/sitemap-range.php:31
-msgid "No posts found"
+#: resources/views/admin/settings.php:51
+msgid "After changing this setting you need to re-save your permalink settings."
+msgstr ""
+
+#: resources/views/admin/settings.php:54
+msgid "Permalink Settings"
+msgstr ""
+
+#: resources/views/sitemap-range.php:25
+msgid "Nothing found"
 msgstr ""
 
 #: src/Core/SettingsPage.php:40
@@ -59,18 +67,18 @@ msgstr ""
 msgid "HTML Sitemap"
 msgstr ""
 
-#: src/Pages/LastWeek.php:45
+#: src/Pages/LastWeek.php:46
 msgid "Last week"
 msgstr ""
 
-#: src/Pages/ThisWeek.php:45
+#: src/Pages/ThisWeek.php:46
 msgid "This week"
 msgstr ""
 
-#: src/Pages/Today.php:48
+#: src/Pages/Today.php:49
 msgid "Today"
 msgstr ""
 
-#: src/Pages/Yesterday.php:48
+#: src/Pages/Yesterday.php:49
 msgid "Yesterday"
 msgstr ""

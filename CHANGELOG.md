@@ -2,6 +2,11 @@
 
 All changes to this project will be documented in this file.
 
+## 1.0.7 - 2024-10-29
+
+- Group posts by post types on sitemap pages
+- Allow pages to be selected in the settings which are not published
+
 ## 1.0.1 - 2024-08-26
 
 - Added Dutch translations

@@ -9,7 +9,7 @@ use VOHTMLSitemap\Pages\Page;
 
 /**
  * @var $page Page
- * @var $posts WP_Post[]
+ * @var $postTypes array
  */
 
 ?>
@@ -21,21 +21,19 @@ use VOHTMLSitemap\Pages\Page;
 
     <hr>
 
-    <h3>
-        <?php echo esc_html(__('Posts')) ?>
-    </h3>
+    <?php if (empty($postTypes)): ?>
+        <p><?php esc_html_e('Nothing found', 'vo-html-sitemap') ?></p>
+    <?php else: ?>
+        <?php foreach ($postTypes as $postType => $posts): ?>
+            <h3><?php echo esc_html(get_post_type_object($postType)->label) ?></h3>
 
-    <ul class="vo-html-sitemap__list">
-        <?php if (empty($posts)): ?>
-            <li class="vo-html-sitemap__list-item">
-                <?php esc_html_e('No posts found', 'vo-html-sitemap') ?>
-            </li>
-        <?php else: ?>
-            <?php foreach ($posts as $post): ?>
-                <li class="vo-html-sitemap__list-item">
-                    <a href="<?php echo esc_attr(get_permalink($post)) ?>"><?php echo esc_html($post->post_title) ?></a>
-                </li>
-            <?php endforeach; ?>
-        <?php endif; ?>
-    </ul>
+            <ul class="vo-html-sitemap__list">
+                <?php foreach ($posts as $post): ?>
+                    <li class="vo-html-sitemap__list-item">
+                        <a href="<?php echo esc_attr(get_permalink($post)) ?>"><?php echo esc_html($post->post_title) ?></a>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        <?php endforeach; ?>
+    <?php endif; ?>
 </div>

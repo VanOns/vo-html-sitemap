@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/vo-html-sitemap\n"
-"POT-Creation-Date: 2024-10-03T09:42:01+00:00\n"
-"PO-Revision-Date: 2024-10-03 11:42+0200\n"
+"POT-Creation-Date: 2024-10-29T09:49:29+00:00\n"
+"PO-Revision-Date: 2024-10-29 10:58+0100\n"
 "Last-Translator: Danique Wijnalda <danique@van-ons.nl>\n"
 "Language-Team: \n"
 "Language: nl_NL\n"
@@ -47,9 +47,17 @@ msgstr "Sitemap pagina"
 msgid "Select a page"
 msgstr "Selecteer een pagina"
 
-#: resources/views/sitemap-range.php:31
-msgid "No posts found"
-msgstr "Geen berichten gevonden"
+#: resources/views/admin/settings.php:51
+msgid "After changing this setting you need to re-save your permalink settings."
+msgstr "Na het aanpassen van deze instelling moet je de permalink instellingen opnieuw opslaan."
+
+#: resources/views/admin/settings.php:54
+msgid "Permalink Settings"
+msgstr "Permalink instellingen"
+
+#: resources/views/sitemap-range.php:25
+msgid "Nothing found"
+msgstr "Niks gevonden"
 
 #: src/Core/SettingsPage.php:40
 msgid "VO HTML Sitemap Settings"
@@ -59,19 +67,19 @@ msgstr "VO HTML Sitemap Instellingen"
 msgid "HTML Sitemap"
 msgstr "HTML Sitemap"
 
-#: src/Pages/LastWeek.php:45
+#: src/Pages/LastWeek.php:46
 msgid "Last week"
 msgstr "Vorige week"
 
-#: src/Pages/ThisWeek.php:45
+#: src/Pages/ThisWeek.php:46
 msgid "This week"
 msgstr "Deze week"
 
-#: src/Pages/Today.php:48
+#: src/Pages/Today.php:49
 msgid "Today"
 msgstr "Vandaag"
 
-#: src/Pages/Yesterday.php:48
+#: src/Pages/Yesterday.php:49
 msgid "Yesterday"
 msgstr "Gisteren"
 

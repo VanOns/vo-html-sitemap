@@ -48,4 +48,13 @@ abstract class Page
     {
         return sanitize_title($this->getLabel());
     }
+
+    protected function splitByPostType(array $posts = []): array
+    {
+        return array_reduce($posts, function ($carry, $post) {
+            $carry[$post->post_type][] = $post;
+
+            return $carry;
+        }, []);
+    }
 }

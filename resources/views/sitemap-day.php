@@ -13,7 +13,7 @@ use VOHTMLSitemap\Pages\Year;
  * @var $year Year
  * @var $month Month
  * @var $day Day
- * @var $posts WP_Post[]
+ * @var $postTypes array
  */
 
 ?>
@@ -27,15 +27,15 @@ use VOHTMLSitemap\Pages\Year;
 
     <hr>
 
-    <h3>
-        <?php echo esc_html(__('Posts')) ?>
-    </h3>
+    <?php foreach ($postTypes as $postType => $posts): ?>
+        <h3><?php echo esc_html(get_post_type_object($postType)->label) ?></h3>
 
-    <ul class="vo-html-sitemap__list">
-        <?php foreach ($posts as $post): ?>
-            <li class="vo-html-sitemap__list-item">
-                <a href="<?php echo esc_attr(get_permalink($post)) ?>"><?php echo esc_html($post->post_title) ?></a>
-            </li>
-        <?php endforeach; ?>
-    </ul>
+        <ul class="vo-html-sitemap__list">
+            <?php foreach ($posts as $post): ?>
+                <li class="vo-html-sitemap__list-item">
+                    <a href="<?php echo esc_attr(get_permalink($post)) ?>"><?php echo esc_html($post->post_title) ?></a>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    <?php endforeach; ?>
 </div>

@@ -15,7 +15,7 @@ class LastWeek extends Page
     {
         return Template::get('sitemap-range', [
             'page' => $this,
-            'posts' => $this->getItems(),
+            'postTypes' => $this->getItems(),
         ]);
     }
 
@@ -35,9 +35,10 @@ class LastWeek extends Page
                 'before' => gmdate('Y-m-d', strtotime("sunday last week +1 day")),
             ],
             'posts_per_page' => -1,
+            'orderby' => ['type', 'date'],
         ]);
 
-        return $this->items = $query->posts;
+        return $this->items = $this->splitByPostType( $query->posts );
     }
 
     public function getLabel(): string
