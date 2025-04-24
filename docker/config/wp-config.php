@@ -26,7 +26,7 @@ define('DB_NAME', 'vo-html-sitemap');
 define('DB_USER', 'root');
 
 /** MySQL database password */
-define('DB_PASSWORD', '');
+define('DB_PASSWORD', 'root');
 
 /** MySQL hostname */
 define('DB_HOST', 'docker.for.mac.localhost:3306');

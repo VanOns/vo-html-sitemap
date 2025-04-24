@@ -2,6 +2,10 @@
 
 All changes to this project will be documented in this file.
 
+## 1.0.9 2025-04-24
+
+- Tested up to bump
+
 ## 1.0.7 - 2024-10-29
 
 - Group posts by post types on sitemap pages
