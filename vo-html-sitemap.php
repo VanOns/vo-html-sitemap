@@ -4,7 +4,7 @@
  * Description:       Van Ons plugin to add an HTML sitemap to your site.
  * Author:            Van Ons
  * Author URI:        https://van-ons.nl/
- * Version:           1.0.9
+ * Version:           1.0.10
  * Text Domain:       vo-html-sitemap
  * Domain Path:       /languages
  * Requires at least: 6.4
@@ -23,7 +23,7 @@ if (!defined('ABSPATH') || !function_exists('add_filter')) {
 }
 
 // Define plugin constants.
-define('VOHTMLSITEMAP_VERSION', '1.0.9');
+define('VOHTMLSITEMAP_VERSION', '1.0.10');
 
 define('VOHTMLSITEMAP_ROOT', __DIR__ . '/');
 define('VOHTMLSITEMAP_ROOT_FILE', __FILE__);

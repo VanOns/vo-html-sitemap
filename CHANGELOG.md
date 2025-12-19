@@ -2,6 +2,10 @@
 
 All changes to this project will be documented in this file.
 
+## 1.0.10 2025-12-19
+
+- Tested up to bump
+
 ## 1.0.9 2025-04-24
 
 - Tested up to bump
