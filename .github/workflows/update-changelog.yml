@@ -25,7 +25,7 @@ jobs:
           release-notes: ${{ github.event.release.body }}
 
       - name: Create pull request
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           branch: chore/update-changelog-${{ github.event.release.tag_name }}
           commit-message: "chore: update CHANGELOG.md"
