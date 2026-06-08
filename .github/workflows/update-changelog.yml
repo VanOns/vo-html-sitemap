@@ -10,6 +10,7 @@ jobs:
 
     permissions:
       contents: write
+      pull-requests: write
 
     steps:
       - name: Checkout code
@@ -23,9 +24,12 @@ jobs:
           latest-version: ${{ github.event.release.tag_name }}
           release-notes: ${{ github.event.release.body }}
 
-      - name: Commit changelog
-        uses: stefanzweifel/git-auto-commit-action@v5
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v7
         with:
-          branch: ${{ github.event.release.target_commitish }}
-          commit_message: "chore: update CHANGELOG.md"
-          file_pattern: CHANGELOG.md
+          branch: chore/update-changelog-${{ github.event.release.tag_name }}
+          commit-message: "chore: update CHANGELOG.md"
+          title: "chore: update CHANGELOG.md for ${{ github.event.release.tag_name }}"
+          body: "Automated changelog update for release ${{ github.event.release.tag_name }}"
+          labels: documentation
+          delete-branch: true
