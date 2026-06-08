@@ -1,4 +1,4 @@
-# Basic usage
+# Usage
 
 1. Go to `Settings` -> `HTML Sitemap` to configure on which page the sitemap should be displayed. We recommend using a page dedicated to displaying the sitemap.
 2. Flush your permalinks by going to `Settings` -> `Permalinks` and clicking `Save Changes`.
