@@ -16,7 +16,7 @@
     "package": "npm run build && node ./wp-package-plugin.js"
   },
   "devDependencies": {
-    "babel-loader": "^9.1.3",
+    "babel-loader": "^10.1.1",
     "css-loader": "^7.1.2",
     "mini-css-extract-plugin": "^2.10.2",
     "node-sass": "^9.0.0",
