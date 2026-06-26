@@ -3,8 +3,8 @@ Contributors: vanonsopensource
 Donate link: https://van-ons.nl/
 Tags: sitemap, SEO, html
 Requires at least: 6.4
-Tested up to: 6.9
-Stable tag: 1.0.10
+Tested up to: 7
+Stable tag: 1.0.11
 Requires PHP: 8.0
 License: MIT
 License URI: https://opensource.org/licenses/MIT
